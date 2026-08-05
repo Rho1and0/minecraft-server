@@ -1,0 +1,24 @@
+#version: "3.9"
+
+services:
+  minecraft:
+    build: .
+    container_name: minecraft
+    restart: unless-stopped
+    ports:
+      - "25565:25565"
+
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      VERSION: "LATEST"
+      MEMORY: "4G"
+      ENABLE_ROLLING_LOGS: "true"
+      TZ: "America/La_Paz"
+
+    volumes:
+      - ./data:/data
+      - ./plugins:/data/plugins
+
+    tty: true
+    stdin_open: true
