@@ -4,13 +4,13 @@ set -e
 PLUGIN_DIR="/data/plugins"
 mkdir -p "$PLUGIN_DIR"
 
-if [ ! -f "$PLUGIN_DIR/Heartbound.jar" ]; then
-    echo "Descargando Heartbound..."
+if [ ! -f "$PLUGIN_DIR/SharedLife.jar" ]; then
+    echo "Descargando SharedLife..."
 
-    URL=$(curl -s https://api.modrinth.com/v2/project/heartbound/version \
+    URL=$(curl -s https://api.modrinth.com/v2/project/sharedlife/version \
         | jq -r '.[0].files[0].url')
 
-    curl -L "$URL" -o "$PLUGIN_DIR/Heartbound.jar"
+    curl -L "$URL" -o "$PLUGIN_DIR/SharedLife.jar"
 
     chown -R 1000:1000 "$PLUGIN_DIR"
 fi
